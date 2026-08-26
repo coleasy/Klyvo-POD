@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root { --ink:#070707; --paper:#f7f4ee; --acid:#e9ff3f; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin:0; background:#fff; color:var(--ink); font-family:Arial, Helvetica, sans-serif; }
+a { color:inherit; text-decoration:none; }
+::selection { background:var(--acid); color:#000; }
+.k-container { width:min(1180px, calc(100% - 32px)); margin-inline:auto; }
+.k-display { font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; text-transform:uppercase; letter-spacing:-.035em; }
+.k-outline { color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.72); }
+.k-btn { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 24px; border:1px solid #111; background:#111; color:#fff; font-weight:800; text-transform:uppercase; letter-spacing:.08em; transition:.2s ease; }
+.k-btn:hover { background:var(--acid); color:#111; }
+.k-btn-light { background:#fff; color:#111; border-color:#fff; }
+.k-grid { display:grid; gap:18px; }
+@media (min-width:760px){ .k-grid-4{grid-template-columns:repeat(4,1fr)} .k-grid-3{grid-template-columns:repeat(3,1fr)} }
