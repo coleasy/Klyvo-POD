@@ -1,5 +1,6 @@
 'use client';
 
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { Search, ShoppingBag, UserRound } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -29,7 +30,12 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
           </nav>
           <div className="flex items-center gap-4">
             <Search size={19} />
-            <Link href="/sign-in" aria-label="Sign in"><UserRound size={19} /></Link>
+            <SignedOut>
+              <Link href="/sign-in" aria-label="Sign in"><UserRound size={19} /></Link>
+            </SignedOut>
+            <SignedIn>
+              <UserButton appearance={{ elements: { avatarBox: "h-6 w-6" } }} />
+            </SignedIn>
             <Link href="/cart" aria-label="Cart"><ShoppingBag size={19} /></Link>
           </div>
         </div>
