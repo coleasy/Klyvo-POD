@@ -1,0 +1,32 @@
+[Unit]
+Description=Klyvo Next.js application
+After=network.target
+
+[Service]
+Type=simple
+User=klyvo
+Group=klyvo
+WorkingDirectory=/srv/apps/klyvo-pod/current
+EnvironmentFile=/etc/klyvo/env
+Environment=NODE_ENV=production
+Environment=HOSTNAME=127.0.0.1
+Environment=PORT=3010
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=20
+KillSignal=SIGTERM
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+
+[Install]
+WantedBy=multi-user.target
