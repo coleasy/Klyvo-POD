@@ -1,0 +1,11 @@
+# Replace with Klyvo's production domain.
+klyvo.example.com {
+  encode zstd gzip
+  reverse_proxy 127.0.0.1:3010
+
+  header {
+    X-Content-Type-Options "nosniff"
+    Referrer-Policy "strict-origin-when-cross-origin"
+    Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  }
+}
